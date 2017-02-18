@@ -1,10 +1,22 @@
-<h1>Lista de películas ordenadas por popularidad</h1>
+<h2>{{title}}</h2>
 <div>
   <ul>
-    <li *ngFor = "let movie of movieList">
-      <div class="">
-        <h2>{{movie.title}}</h2>
-      </div>
+    <li *ngFor = "let movie of movieList" (click) = "onSelect(movie)">
+        <h4>{{movie.title}}</h4>
     </li>
+  </ul>
+</div>
+
+<div *ngIf='selectedMovie'>
+  <ul>
+    <li>Titulo: {{selectedMovie.title}}</li>
+    <li>{{selectedMovie.id}}</li>
+    <li>{{selectedMovie.overview}}</li>
+    <li>{{selectedMovie.release_date}}</li>
+
+      <label>GENEROS:</label>
+      <li *ngFor = "let genre of selectedMovie.genre_ids">
+          <span>{{getGenreName(genre)}}</span>
+      </li>
   </ul>
 </div>
