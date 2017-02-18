@@ -13,6 +13,7 @@
     <li>{{selectedMovie.id}}</li>
     <li>{{selectedMovie.overview}}</li>
     <li>{{selectedMovie.release_date}}</li>
+    <li>Idioma original: {{selectedMovie.original_language | uppercase}}</li>
 
       <label>GENEROS:</label>
       <li *ngFor = "let genre of selectedMovie.genre_ids">

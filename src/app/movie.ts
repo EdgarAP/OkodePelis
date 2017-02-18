@@ -7,4 +7,5 @@ export class Movie{
   release_date: number;
   genres: Genre[];
   genre_ids : number[];
+  original_language : string;
 }
