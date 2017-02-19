@@ -1,21 +1,21 @@
 <h2>{{title}}</h2>
-<div>
-  <ul>
-    <li *ngFor = "let movie of movieList" (click) = "onSelect(movie)">
-        <h4>{{movie.title}}</h4>
+<div class="pepe">
+  <ul class="movie">
+    <li *ngFor = "let movie of movieList" (click) = "onSelect(movie)" [class.selected]= "movie === selectedMovie">
+        <span>{{movie.title}}</span>
     </li>
   </ul>
-</div>
-
-<div *ngIf='selectedMovie'>
-  <ul>
-    <li>Titulo: {{selectedMovie.title}}</li>
-    <li>{{selectedMovie.id}}</li>
-    <li>{{selectedMovie.overview}}</li>
-    <li>{{selectedMovie.release_date}}</li>
+  <ul *ngIf='selectedMovie' class="movieInfo">
+    <li>
+      <span>Titulo: </span>
+      <span id="title">{{selectedMovie.title}}</span>
+    </li>
+    <li>Número de identificación: {{selectedMovie.id}}</li>
+    <li id="overview">Sinopsis: {{selectedMovie.overview}}</li>
+    <li>Fecha de lanzamiento: {{selectedMovie.release_date}}</li>
     <li>Idioma original: {{selectedMovie.original_language | uppercase}}</li>
 
-      <label>GENEROS:</label>
+      <span style="font-weight: 600"><br>GENERO:</span>
       <li *ngFor = "let genre of selectedMovie.genre_ids">
           <span>{{getGenreName(genre)}}</span>
       </li>
