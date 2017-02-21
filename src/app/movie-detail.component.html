@@ -1,0 +1,16 @@
+<ul *ngIf='selectedMovie' class="movieInfo">
+  <li>
+    <span>Titulo: </span>
+    <span id="title">{{selectedMovie.title}}</span>
+  </li>
+  <li>Número de identificación: {{selectedMovie.id}}</li>
+  <li id="overview">Sinopsis: {{selectedMovie.overview}}</li>
+  <li>Fecha de lanzamiento: {{selectedMovie.release_date}}</li>
+  <li>Idioma original: {{selectedMovie.original_language | uppercase}}</li>
+
+    <span style="font-weight: 600"><br>GENERO:</span>
+    <li *ngFor = "let genre of selectedMovie.genres">
+        <span>{{genre.name}}</span>
+    </li>
+</ul>
+<button (click)= "goBack()">Back</button>

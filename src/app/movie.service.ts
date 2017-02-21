@@ -17,18 +17,18 @@ export class MovieService {
     private language = "&language=es-ES"
 
     constructor(private http: Http) { }
- 
+
     getMovie(id: number): Promise<Movie> {
         const url = this.baseUrl + this.movie + id.toString() + this.apiKey + this.language;
         return this.http.get(url)
             //aplicamos el método extract para obtener solo lo necesario
-            .map(this.extract)
+            .map(this.extractMovie)
             .toPromise()
             .then(res => res)
             .catch(this.error);
     }
 
-    private extract(res: Response): Movie {
+    private extractMovie(res: Response): Movie {
         let obj = res.json();
         return {
             title: obj.title,

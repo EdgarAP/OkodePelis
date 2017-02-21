@@ -1,0 +1,14 @@
+#title{
+  font-weight:900;
+  font-size:5em;
+  text-align: justify;
+  line-height: 1.2em;
+}
+#overview{
+  text-align: justify;
+
+}
+.movieInfo li{
+  width: 50em;
+  margin-bottom: .5em;
+}
