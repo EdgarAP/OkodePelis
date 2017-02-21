@@ -11,8 +11,7 @@ import { Genre } from './genre';
 })
 export class MovieListComponent implements OnInit {
 
-    movieList: Movie[] = [];
-    genresList: Genre[];
+    movieList: {title: string, id: number}[] = [];
     title = "Lista de películas ordenadas por popularidad";
 
     selectedMovie: Movie;
@@ -21,15 +20,12 @@ export class MovieListComponent implements OnInit {
     constructor(private movieService: MovieService) { }
 
     ngOnInit(): void {
-        //Inicializamos genresList
-        this.movieService.getGenres().then(genres => this.genresList = genres);
+ 
         //Inicializamos movieList
         this.movieService.getMoviesByPopularity()
             .then(movies => this.movieList = movies);
-    }
 
-    getGenreName(id: Number): string {
-        return this.genresList.find(genre => genre.id == id).name;
+
     }
 
     onSelect(movie: Movie): void {
