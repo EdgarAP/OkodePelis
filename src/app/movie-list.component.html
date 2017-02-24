@@ -1,9 +1,13 @@
 <h2>{{title}}</h2>
-<div >
-  <ul class="movie">
-    <li *ngFor = "let movie of movieList" (click) = "onSelect(movie)" [class.selected]= "movie === selectedMovie">
-        <span>{{movie.title}}</span>
-    </li>
-  </ul>
 
-</div>
+  <div class="list-group">
+    <a *ngFor = "let movie of movieList"
+    class="list-group-item list-group-item-action"
+     (click) = "onSelect(movie)"
+     [class.selected]= "movie === selectedMovie">
+
+      <span>{{movie.title}}</span>
+
+
+    </a>
+  </div>
